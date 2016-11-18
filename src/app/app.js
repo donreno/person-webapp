@@ -12,8 +12,11 @@ let app = () => {
 
 class AppCtrl {
   constructor() {
+    this.persons = [{
+      "firstName" : "Frodo",
+      "lastName" : "Baggins"}];
     this.url = 'https://github.com/preboot/angular-webpack';
-  }
+    }
 }
 
 const MODULE_NAME = 'app';

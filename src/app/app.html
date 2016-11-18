@@ -1,9 +1,29 @@
 <main>
-  <h1 class="title">Hello from Angular !</h1>
+  <h1 class="title">Welcome to persons directory !</h1>
 
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/logo.png">
+  <section class="searchField">
+    <form ng-submit="search()">
+      <input type="text" ng-model="searchTerm">
+      <input type="submit" value="Search By last name">
+    </form>
+  </section>
+  <section class="results">
+    <div class="no-persons" ng-hide="$scope.persons.length">No results</div>
+
+    <!-- We show one of these elements for each recipe in $scope.recipes.
+         The ng-cloak directive prevents our templates from showing on load. -->
+    <div class="person" ng-repeat="$scope.persons in persons" ng-cloak>
+      <h2>
+        {{person.firstName}} {{person.lastName}}
+      </h2>
+    </div>
+
+    <!-- We put a link that calls $scope.loadMore to load more recipes
+         and append them to the results.-->
+    <div class="load-more" ng-hide="allResults" ng-cloak>
+      <a ng-click="loadMore()">More...</a>
+    </div>
+  </section>
 </main>
 <footer>
-  <a ng-href="{{app.url}}">Webpack Angular Starter</a>
 </footer>
